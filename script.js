@@ -1,9 +1,9 @@
 const boxes = document.querySelector('.boxes');
 const sizeOption = document.querySelector('#sizeOptions');
-let userChoice = 0;
+let userChoice = 16;
 
 function createDropboxItems(){
-    for (let i=1; i <= 16; i++) {
+    for (let i=2; i <= 100; i++) {
         const option = document.createElement('option');
         option.textContent = `${i} x ${i}`;
         option.value = i;
@@ -39,9 +39,12 @@ function createBoxes (userChoice){
     for (let i = 1 ; i<= userChoice ** 2; i++){
         const box = document.createElement('div')
         box.classList.add('box');
-        box.addEventListener('mouseenter', () => {box.style.backgroundColor = getRandomColor();            
-        });
-        box.addEventListener('mouseleave', () => {box.style.backgroundColor = 'White';
+        box.style.opacity = 0;
+        box.addEventListener('mouseenter', () => {
+            box.style.backgroundColor = getRandomColor();            
+            // Adding 10% opacity for each mouse hover.
+            let currentOpacity = Number(getComputedStyle(box).opacity);
+            box.style.opacity = Math.min(currentOpacity + 0.1, 1);          
         });
         box.style.height = `${100 / userChoice}%`;
         box.style.width = `${100 / userChoice}%`;
