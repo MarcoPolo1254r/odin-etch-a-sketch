@@ -1,5 +1,6 @@
 const boxes = document.querySelector('.boxes');
 const sizeOption = document.querySelector('#sizeOptions');
+const resetButton = document.querySelector('#resetButton');
 let userChoice = 16;
 
 function createDropboxItems(){
@@ -51,6 +52,13 @@ function createBoxes (userChoice){
         boxes.appendChild(box);
     }
 }
+
+resetButton.addEventListener('click', () => {
+  document.querySelectorAll('.box').forEach(box => {
+    box.style.backgroundColor = 'white';
+    box.style.opacity = 0;
+  });
+});
 
 function main () {
     createDropboxItems ();

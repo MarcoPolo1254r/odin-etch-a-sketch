@@ -19,6 +19,16 @@ body {
     align-items: center;    
 }
 
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 2.5px 15px;
+    margin: 5px 10px;
+}
+
 .boxes{
     display: flex;
     flex-wrap: wrap;
